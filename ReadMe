@@ -1,0 +1,10 @@
+raspi_camera: raspi_io.o raspi_sccb.o raspi_ov7725.o
+	g++ -o raspi_camera raspi_io.o raspi_sccb.o raspi_ov7725.o 
+raspi_io.o:raspi_io.c raspi_io.h
+	gcc -c raspi_io.c
+raspi_sccb.o:raspi_sccb.cpp raspi_io.h raspi_ov7725.h
+	g++ -c raspi_sccb.cpp
+raspi_ov7725.o:raspi_ov7725.cpp raspi_io.h raspi_ov7725.h  raspi_sccb.h
+	g++ -c raspi_ov7725.cpp 
+clean:
+	rm raspi_camera raspi_ov7725.o raspi_io.o raspi_sccb.o

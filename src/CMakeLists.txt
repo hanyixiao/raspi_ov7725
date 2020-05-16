@@ -1,0 +1,5 @@
+aux_source_directory(. src_list)
+include_directories(../include)
+add_executable(raspi_camera ${src_list})
+target_link_libraries(raspi_camera wiringPi png)
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
